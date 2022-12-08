@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./asset/fontawesome-free-6.2.0-web/css/all.min.css">
+    <link rel="stylesheet" href="./asset/css/css.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="main">
+        <form action="" class="form" id="form-1" method="post">
+            <div class="heading">
+                <h2>Đăng ký <i class="fa-solid fa-user-plus"></i></h2>
+                <p class="desc">Hoàn toàn miễn phí</p>
+            </div>
+            <div class="form-group">
+                <label for="fullname">Tên đầy đủ</label>
+                <input name="fullname" id="fullname" type="text" placeholder="VD: Trần Quang Linh">
+                <span class="message"></span>    
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input name="email" id="email" type="text"placeholder="VD: email@gmail.com">
+                <span class="message"></span>
+            </div>
+            <div class="form-group">
+                <label for="password">Mật khẩu</label>
+                <input name="password" id="password" type="password" placeholder="Nhập mật khẩu">
+                <span class="message"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="password-repeat">Nhập lại mật khẩu</label>
+                <input name="password-repeat" id="password-repeat" type="password" placeholder="Nhập lại mật khẩu">
+                <span class="message"></span>
+            </div>
+            <div class="form-group">
+                <label for="avater">Avatar</label>
+                <input name="avatar" id="avatar" type="file">
+                <span class="message"></span>
+            </div>
+            <div class="form-group">
+                <label for="province">Tỉnh/Thành Phố</label>
+                <select name="province" id="province" type="">
+                    <option value="">--Tỉnh/TP--</option>
+                    <option value="Hà Nội">Hà Nội</option>
+                    <option value="Vĩnh Phúc">Vĩnh Phúc</option>
+                </select>
+                <span class="message"></span>
+            </div>
+            <div class="form-group">
+                <label for="password-repeat">Gender</label>
+                <div class="gender">
+                    Man
+                    <input name="gender" value="man" type="checkbox">
+                </div>
+                <div class="gender">
+
+                    Women
+                    <input name="gender" value="women" type="checkbox">
+                </div>
+                <div class="gender">
+                    Other
+                    <input name="gender" value="other" type="checkbox">
+                </div>
+                <span class="message"></span>
+            </div>
+            <div class="btn">
+                <button>Đăng ký</button>
+            </div>
+        </form>
+    </div>
+    <script src="./main.js"></script>
+    <script>
+    
+        Validator({
+            form: '#form-1',
+            formGroupSelector: '.form-group',
+            errorSelector: '.message',
+            rules: [
+                Validator.isRequired('#fullname'),
+                Validator.isRequired('#email'),
+                Validator.isEmail('#email'),
+                Validator.isRequired('#avatar'),
+                Validator.isRequired('#password'),
+                Validator.isRequired('#province'),
+                Validator.isRequired('input[name="gender"]'),
+                Validator.minChar('#password', 6),
+                Validator.isRequired('#password-repeat'),
+                Validator.isConfirmed('#password-repeat', function () {
+                    return document.querySelector('#form-1 #password').value;
+                }, 'Mat khau nhap lai ko chinh xac')
+            ],
+            onSubmit: function(data) {
+                //call api
+                console.log(data);
+            }
+        });
+    </script>
+</body>
+</html>

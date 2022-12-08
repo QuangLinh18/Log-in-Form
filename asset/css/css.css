@@ -1,0 +1,116 @@
+
+:root {
+    --white-color: white
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html {
+    font-family: "Open Sans", sans-serif;
+    /* font-size: 62.5%; */
+}
+.main {
+    background-color: #f1f1f1;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    border-radius: 2px;
+}
+.form {
+    background-color: white;
+    width: 360px;
+    min-height: 100px;
+    margin: auto;
+    box-shadow: 0 0 6px rgb(185, 185, 185);
+
+}
+.heading {
+    text-align: center;
+    padding: 28px 28px 8px;
+}
+.heading h2 {
+    color: rgb(5, 121, 184);
+    display: flex;
+    justify-content: center;
+    align-self: flex-start;
+}
+.heading h2 i {
+    font-size: 20px;
+    left: 2px;
+    margin-left: 4px;
+}
+.heading p {
+    line-height: 2.3;
+}
+.form-group {
+    padding: 12px 28px;
+}
+.form-group .message {
+    padding: 4px 8px;
+    font-size: 14px;
+}
+
+.form-group.invalid input {
+    border-color: #f33a58;
+}
+.form-group.invalid .message {
+    color: #f33a58;
+}
+
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 16px;
+    font-weight: 550;
+}
+.form-group input {
+    padding: 14px 8px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    width: 100%;
+}
+.form-group input:focus {
+    outline: 1px solid rgb(117, 197, 231);
+}
+.form-group .gender {
+    display: flex;
+    margin-left: 20px;
+    width: 50%;
+    position: relative;
+    padding: 8px 0;
+}
+.form-group .gender input {
+    width: 18px;
+    height: 18px;
+    outline: none;
+    position: absolute;
+    left: 100px;
+    padding: 8px;
+    top: 8px;
+}
+
+.form .btn {
+    display: flex;
+    justify-content: center;
+    margin: 12px 0 34px;
+}
+
+.form .btn button {
+    width: 100%;
+    margin: 12px 28px;
+    padding: 14px 8px;
+    background-color: rgb(41, 173, 244);
+    border: none;
+    border-radius: 8px;
+    outline: none;
+    font-size: 16px;
+    color: var(--white-color);
+    font-weight: 550;
+}
+.form .btn button:hover {
+    background-color: rgb(119, 202, 246);
+}
